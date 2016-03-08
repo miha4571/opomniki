@@ -9,8 +9,28 @@ window.addEventListener('load', function() {
 		} else {
 			alert("Vnesite ime.");
 		}
+	}
+	
+	var dodajOpomnik = function(event) {
+		var naziv = document.querySelector("#naziv_opomnika").value;
+		var cas = document.querySelector("#cas_opomnika").value;
+		document.querySelector("#naziv_opomnika").value = "";
+		document.querySelector("#cas_opomnika").value = "";
+		
+		if(cas== "") {
+			cas=0;
+		}
+		
+		document.querySelector("#opomniki").innerHTML += " \
+			<div class='opomnik'> \
+	            <div class='naziv_opomnika'>" + naziv + "</div> \
+	            <div class='cas_opomnika'> Opomnik čez <span>" + cas + "</span> sekund.</div> \
+			</div>"	
 		
 	}
+	
+	
+	document.querySelector("#dodajGumb").addEventListener('click', dodajOpomnik)
 	
 	document.querySelector("#prijavniGumb").addEventListener('click', izvediPrijavo);
 	
